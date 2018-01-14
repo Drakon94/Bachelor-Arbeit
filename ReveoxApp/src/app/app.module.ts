@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { NoopAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 
 
@@ -98,6 +99,7 @@ import {CdkTableModule} from "@angular/cdk/table";
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    NoopAnimationsModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
