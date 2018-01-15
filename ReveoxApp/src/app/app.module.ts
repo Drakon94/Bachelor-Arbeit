@@ -49,6 +49,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { FooterComponent } from './footer/footer.component';
 
 import { RidesService } from "./services/rides.service";
+import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
+import { InMemoryDataService } from "./mock-data/in-memory-data.service";
 
 
 @NgModule({
@@ -99,6 +101,9 @@ import { RidesService } from "./services/rides.service";
     MatStepperModule,
     CdkTableModule,
     HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    ),
     AppRoutingModule
   ],
   providers: [RidesService],
