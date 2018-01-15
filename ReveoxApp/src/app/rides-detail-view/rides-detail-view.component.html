@@ -1,3 +1,4 @@
-<p>
-  rides-detail-view works!
-</p>
+<div> Fahrt startet in: {{ride.from}} </div>
+<div> Fahrt geht nach: {{ride.to}} </div>
+<div> Das Fahrzeug wird zur Verfügung gestellt von: {{ride.provider}}</div>
+<button mat-raised-button class="changebutton" routerLink="/rides/{{ride.id}}"> Jetzt buchen! </button>

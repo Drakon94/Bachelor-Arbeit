@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {RidesService} from "../services/rides.service";
+import {Ride} from "../models/ride";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-rides-detail-view',
@@ -7,9 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RidesDetailViewComponent implements OnInit {
 
-  constructor() { }
+
+  @Input() ride: Ride;
+
+  constructor(
+    private route: ActivatedRoute,
+    private accountService: RidesService,
+    private location: Location
+  ) { }
 
   ngOnInit() {
+    this.getAccount()
+  }
+
+  getAccount(): void {
+    let id: number;
+    this.route.params.subscribe((params) => {
+      id = +params['id'];
+      this.accountService.getRide(id).subscribe(ride => this.ride = ride);
+    });
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 
 }
